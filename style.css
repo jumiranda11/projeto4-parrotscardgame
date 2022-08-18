@@ -1,0 +1,48 @@
+body {
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 40px auto;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    text-align: center;
+}
+
+.container-cartas {
+    display: flex; 
+    max-width: 83%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-cartas div {
+    width: 117px;
+    height: 146px;
+    background-color: #A7E9AF;
+    border-radius: 5px;
+    border: 1px solid #99CEA8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 17px;
+}
+
+.container-cartas div object {
+    width: 100;
+    height: 100;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 36px;
+    }
+}
