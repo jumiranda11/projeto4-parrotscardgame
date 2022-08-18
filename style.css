@@ -17,14 +17,18 @@ h1 {
     text-align: center;
 }
 
-.container-cartas {
-    display: flex; 
+.container-cartas {  
     max-width: 83%;
+}
+
+.container-cartas ul{
+    display: flex; 
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.container-cartas div {
+
+.container-cartas li div {
     width: 117px;
     height: 146px;
     background-color: #A7E9AF;
@@ -36,7 +40,7 @@ h1 {
     margin: 17px;
 }
 
-.container-cartas div object {
+.container-cartas li div object {
     width: 100;
     height: 100;
 }
