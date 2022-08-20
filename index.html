@@ -16,26 +16,38 @@
     <h1>PARROT CARD GAME</h1>
     <div class="container-cartas">
         <ul>
-            <li>
-                <div>
-                    <object data="front 6.svg"></object>
+            <li class="card" id="explodiu" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                   <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/explodyparrot.gif" alt=""/>
                 </div>
             </li>
-            <li>
-                <div>
-                    <object data="front 6.svg"></object>
+            <li class="card"  id="explodiu" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/explodyparrot.gif" alt=""/>
                 </div>
             </li>
-            <li>
-                <div>
-                    <object data="front 6.svg"></object>
+            <li class="card"  id="tres" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/tripletsparrot.gif" alt=""/>
                 </div>
             </li>
-            <li>
-                <div>
-                    <object data="front 6.svg"></object>
+            <li class="card"  id="tres" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
                 </div>
-            </li>            
+                <div class="back-face face">
+                    <img src="gifs/tripletsparrot.gif" alt=""/>
+                </div>
+            </li>          
         </ul>
     </div>
     <script src="script.js"></script>
