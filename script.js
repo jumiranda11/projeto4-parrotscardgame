@@ -1,81 +1,169 @@
+let contadorDeComparacao = 0;
+let cartaAComparar = [];
+let cartasFeitas = [];
+let cartasAbertas = [];
+let contadorDeVezes = 0;
+let contadorTempo = 0;
 let quantidadeCartas = "";
 
-function perguntarQuantidade() {
-    const quantasCartas = [];
-    let quantidade = prompt("Com quantas cartas você gostaria de jogar?");
-    quantasCartas.push(quantidade);
-
-
-    for (let i = 0; i < quantasCartas.length; i++) {
-        if (quantasCartas[i] == 4 || quantasCartas[i] == 6 || quantasCartas[i] == 8 || quantasCartas[i] == 10 || quantasCartas[i] == 12 || quantasCartas[i] == 14) {
-            quantidadeCartas = quantasCartas[i];
-
-
-            if (quantasCartas[i] > 5) {
-                document.querySelector('.container-cartas ul').innerHTML = document.querySelector('.container-cartas ul').innerHTML + `<li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>`;
-            } if (quantasCartas[i] > 7) {
-                document.querySelector('.container-cartas ul').innerHTML = document.querySelector('.container-cartas ul').innerHTML + `<li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>`;
-             } if (quantasCartas[i] > 9) {
-                document.querySelector('.container-cartas ul').innerHTML = document.querySelector('.container-cartas ul').innerHTML + `<li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>`;
-            } if (quantasCartas[i] > 11) {
-                document.querySelector('.container-cartas ul').innerHTML = document.querySelector('.container-cartas ul').innerHTML + `<li>
-                   <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>`;
-            } if (quantasCartas[i] > 13) {
-                document.querySelector('.container-cartas ul').innerHTML = document.querySelector('.container-cartas ul').innerHTML + `<li>
-                   <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <object data="front 6.svg"></object>
-                    </div>
-                </li>`;
-            }
-          break;
-        } else {
-            quantidade = prompt("Com quantas cartas você gostaria de jogar?");
-            quantasCartas.push(quantidade);
-        }
-    }
-
+function comparador() { 
+	return Math.random() - 0.5; 
 }
-perguntarQuantidade();
+
+let quantidade = prompt("Com quantas cartas você gostaria de jogar?");
+
+let explodiu1 = `<li class="card" id="explodiu" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                        <img src="gifs/front.png" alt=""/>
+                    </div>
+                    <div class="back-face face">
+                        <img src="gifs/explodyparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let explodiu2 = `<li class="card" id="explodiu" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                        <img src="gifs/front.png" alt=""/>
+                    </div>
+                    <div class="back-face face">
+                        <img src="gifs/explodyparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let tres1 =  `<li class="card" id="tres" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/tripletsparrot.gif" alt=""/>
+                </div>
+            </li>`;
+let tres2 =  `<li class="card" id="tres" onclick="virarCarta(this); verificarMesmaCarta(this)">
+            <div class="front-face face">
+                <img src="gifs/front.png" alt=""/>
+            </div>
+            <div class="back-face face">
+                <img src="gifs/tripletsparrot.gif" alt=""/>
+            </div>
+        </li>`;
+let unicorn1 = `<li class="card" id="unicorn" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                        </div>
+                    <div class="back-face face">
+                        <img src="gifs/unicornparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let unicorn2 = `<li class="card" id="unicorn" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                <img src="gifs/front.png" alt=""/>
+                    </div>
+                <div class="back-face face">
+                    <img src="gifs/unicornparrot.gif" alt=""/>
+                </div>
+            </li>`;
+let revertit1 = `<li class="card" id="revertit" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                        <img src="gifs/front.png" alt=""/>
+                    </div>
+                    <div class="back-face face">
+                        <img src="gifs/revertitparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let revertit2 = `<li class="card" id="revertit" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                        <img src="gifs/front.png" alt=""/>
+                    </div>
+                    <div class="back-face face">
+                        <img src="gifs/revertitparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let metal1 = `<li class="card" id="metal" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/metalparrot.gif" alt=""/>
+                </div>
+            </li>`;
+let metal2 = `<li class="card" id="metal" onclick="virarCarta(this); verificarMesmaCarta(this)">
+            <div class="front-face face">
+                <img src="gifs/front.png" alt=""/>
+            </div>
+            <div class="back-face face">
+                <img src="gifs/metalparrot.gif" alt=""/>
+            </div>
+        </li>`;
+let fiesta1 =  `<li class="card" id="fiesta" onclick="virarCarta(this); verificarMesmaCarta(this)">
+        <div class="front-face face">
+            <img src="gifs/front.png" alt=""/>
+        </div>
+        <div class="back-face face">
+            <img src="gifs/fiestaparrot.gif" alt=""/>
+        </div>
+    </li>`;
+let fiesta2 =  `<li class="card" id="fiesta" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                    <div class="front-face face">
+                        <img src="gifs/front.png" alt=""/>
+                    </div>
+                    <div class="back-face face">
+                        <img src="gifs/fiestaparrot.gif" alt=""/>
+                    </div>
+                </li>`;
+let bobross1 = `<li class="card" id="bobross" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/bobrossparrot.gif" alt=""/>
+                </div>
+            </li>`;
+let bobross2 = `<li class="card" id="bobross" onclick="virarCarta(this); verificarMesmaCarta(this)">
+                <div class="front-face face">
+                    <img src="gifs/front.png" alt=""/>
+                </div>
+                <div class="back-face face">
+                    <img src="gifs/bobrossparrot.gif" alt=""/>
+                </div>
+            </li>`;
+let cartasAparentes = [];
+
+function perguntarQuantidade() {
+    while(quantidade != 4 && quantidade != 6 && quantidade != 8 && quantidade != 10 && quantidade != 12 && quantidade != 14) {
+        console.log(quantidade);
+        quantidade = prompt("Com quantas cartas você gostaria de jogar?");
+    }
+    cartasAparentes.push(explodiu1);
+    cartasAparentes.push(explodiu2);
+    cartasAparentes.push(tres1);
+    cartasAparentes.push(tres2);
+    console.log(cartasAparentes);
+
+    if (quantidade > 4) {
+        cartasAparentes.push(unicorn1);
+        cartasAparentes.push(unicorn2);
+    } 
+    if (quantidade > 6) {
+        cartasAparentes.push(revertit1);
+        cartasAparentes.push(revertit2);
+    }
+    if (quantidade > 8) {
+        cartasAparentes.push(metal1);
+        cartasAparentes.push(metal2);
+    }
+    if (quantidade > 10) {
+        cartasAparentes.push(fiesta1);
+        cartasAparentes.push(fiesta2);
+    }
+    if (quantidade > 12) {
+        cartasAparentes.push(bobross1);
+        cartasAparentes.push(bobross2);
+    }
+    cartasAparentes.sort(comparador);
+    cartas = document.querySelector('.lista-cartas');
+    console.log(cartas);
+    for(i = 0; i < quantidade; i++){
+        cartas.innerHTML = cartas.innerHTML + cartasAparentes[i]; 
+    }
+}
 
 function virarCarta(carta){
     let frente = carta.querySelector('.front-face');
@@ -85,11 +173,17 @@ function virarCarta(carta){
     carta.classList.add('aberta');
     cartasAbertas = document.querySelectorAll('.aberta');
 }
+function incrementarTempo(){
+    contadorTempo++;
+}
 
 function verificarMesmaCarta(carta){
     cartaAComparar = document.querySelectorAll(".aberta:not(.feita)");
     console.log(cartaAComparar);
     contadorDeComparacao = 0;
+    if (cartasAbertas.length === 1) {
+        setInterval(incrementarTempo, 1000);
+    }
     if (cartasAbertas.length !== 1 && cartasAbertas.length%2 == 0) {
         for(i = 0; i < cartaAComparar.length; i++) {
         let id1 = carta.id;
@@ -115,18 +209,10 @@ function verificarMesmaCarta(carta){
 
 
 function verificarSeGanhou() {
-    if(cartasFeitas.length == quantidadeCartas) {
-        alert(`Você ganhou em ${contadorDeVezes} jogadas!`);
-        prompt('Gostaria de jogar de novo?');
+    if(cartasFeitas.length == quantidade) {
+        alert(`Você ganhou em ${contadorDeVezes} jogadas e em ${contadorTempo} segundos!`);
     }
 }
-
-let contadorDeComparacao = 0;
-let cartaAComparar = [];
-let cartasFeitas = [];
-let cartasAbertas = [];
-let contadorDeVezes = 0;
-
 
 function desvirarCarta(carta) {
     let frente = carta.querySelector('.front-face');
@@ -137,9 +223,5 @@ function desvirarCarta(carta) {
     cartasAbertas = document.querySelectorAll('.aberta');
 }
 
-// transformar cada li em um elemento de array
-//fazer push com a quantidade de cartas de tantos elementos da array
-//aleatorizar o array
-// quando todas abertas, aparecer um alert falando que você ganhou em X jogadas
-// perguntar por prompt se quer jogar de novo
-
+perguntarQuantidade();
+ 
