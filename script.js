@@ -10,7 +10,7 @@ function comparador() {
 	return Math.random() - 0.5; 
 }
 
-let quantidade = prompt("Com quantas cartas você gostaria de jogar?");
+let quantidade = prompt("Com quantas cartas você gostaria de jogar? (4, 6, 8, 10, 12 ou 14)");
 
 let explodiu1 = `<li class="card" id="explodiu" onclick="virarCarta(this); verificarMesmaCarta(this)">
                     <div class="front-face face">
@@ -129,7 +129,7 @@ let cartasAparentes = [];
 function perguntarQuantidade() {
     while(quantidade != 4 && quantidade != 6 && quantidade != 8 && quantidade != 10 && quantidade != 12 && quantidade != 14) {
         console.log(quantidade);
-        quantidade = prompt("Com quantas cartas você gostaria de jogar?");
+        quantidade = prompt("Com quantas cartas você gostaria de jogar? (4, 6, 8, 10, 12 ou 14)" );
     }
     cartasAparentes.push(explodiu1);
     cartasAparentes.push(explodiu2);
